@@ -9,7 +9,13 @@
 */
 int string_length(char *s)
 {
+    int charCount = 0;
 
+    for(int i = 0; s[i]; i++) {
+        charCount++;
+    }
+    // printf("charCounter %d\n", charCount);
+    return charCount;
 }
 
 /*
@@ -20,7 +26,30 @@ int string_length(char *s)
 */
 char *reverse_string(char *rv, char *s)
 {
+    int length = string_length(s) - 1;
+    printf("length: %d\n", length);
 
+    int start = 0;
+    printf("start: %d\n", start);
+
+    for (int i = length; i >= 0; i--) {
+        printf("-----BEGIN LOOP-----\n");
+        printf("i: %d\n", i);
+        printf("start: %d\n", start);
+
+        rv[start] = s[i];
+
+        printf("rv[start]: %d\n", rv[start]);
+        printf("rv: %s\n", rv);
+        
+        start++;
+        printf("start: %d\n", start);
+    }
+
+    rv[start] = 0;
+    
+    printf("rv: %s\n", rv);
+    return rv;
 }
 
 #ifndef TESTING
