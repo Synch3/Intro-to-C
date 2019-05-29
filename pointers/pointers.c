@@ -15,7 +15,15 @@
 */
 void string_copy(char *x, char *y)
 {
+    int length = string_length(y);
+    printf("length: %d\n", length);
 
+    for (int i = 0; i <= length; i++)
+    {
+        x[i] = y[i];
+        printf("%s\n", x);
+    }
+    printf("%s\n", x);
 }
 
 /*
@@ -28,7 +36,14 @@ void string_copy(char *x, char *y)
 */
 char *find_char(char *str, int c)
 {
-
+    int length = strlen(str);
+    char *pointer = NULL;
+    for (int i = 0; i < length; i++) {
+        if (str[i] == c) {
+            pointer = &str[i];
+        }
+    }
+    return pointer;
 }
 
 /*
@@ -41,7 +56,20 @@ char *find_char(char *str, int c)
 */
 char *find_string(char *haystack, char *needle)
 {
-
+    while(*haystack != '\0'){
+        if(*haystack == *needle){
+            char *pointer = haystack;
+            while(*haystack == *needle && *needle != '\0'){
+                haystack = haystack + 1;
+                needle = needle + 1;
+            }
+            if(*needle == '\0'){
+                return pointer;
+            }
+        }
+        haystack = haystack + 1;
+    }
+    return NULL;
 }
 
 #ifndef TESTING
